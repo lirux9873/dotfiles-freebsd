@@ -35,4 +35,21 @@ Originally from Wallhaven.
 
 ## Dynamic Color Scheme 
 
-The `scripts/newlook` script randomly changes the wallpaper and regenerates the entire desktop color scheme using `pywal`: 1. Selects a random wallpaper from `~/pix/wall/` and applies it with `xwallpaper` 2. `pywal` generates a color palette from the wallpaper 3. The colors are merged into dwm's Xresources using `xrdb` 4. `killall -USR1 dwm` reloads the colors in dwm without restarting it The dwm status bar, window borders, and the terminal (`st`) automatically update their color scheme to match the selected wallpaper. ## Dependencies | Program | Purpose | |---|---| | `xwallpaper` | wallpaper management | | `pywal` | dynamic color schemes | | `dmenu` | application launcher | | `picom` | compositor (transparency, blur, animations) | | `dunst` | notifications | | `flameshot` | screenshots | | `xrandr` | monitor configuration |
+The `scripts/newlook` script randomly changes the wallpaper and regenerates the entire desktop color scheme using `pywal`: 
+
+1. Selects a random wallpaper from `~/pix/wall/` and applies it with `xwallpaper`
+2. `pywal` generates a color palette from the wallpaper
+3. The colors are merged into dwm's Xresources using `xrdb`
+4. `killall -USR1 dwm` reloads the colors in dwm without restarting it The dwm status bar, window borders, and the terminal (`st`) automatically update their color scheme to match the selected wallpaper.
+
+
+## Dependencies 
+| Program      | Purpose                                     | 
+|--------------|---------------------------------------------| 
+| `xwallpaper` | wallpaper management                        | 
+| `pywal`      | dynamic color schemes                       | 
+| `dmenu`      | application launcher                        | 
+| `picom`      | compositor (transparency, blur, animations) | 
+| `dunst`      | notifications                               | 
+| `flameshot`  | screenshots                                 | 
+| `xrandr`     | monitor configuration                       |
