@@ -57,3 +57,6 @@ The dwm status bar, window borders, and the terminal (`st`) automatically update
 | `dunst`      | notifications                               | 
 | `flameshot`  | screenshots                                 | 
 | `xrandr`     | monitor configuration                       |
+
+
+<img width="1920" height="1073" alt="image" src="https://github.com/user-attachments/assets/83114646-089d-4908-ab6f-320e6c065876" />
