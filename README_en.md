@@ -7,7 +7,9 @@ It was built on my machine, and on my machine it works.
 **dwm + st + dwmblocks + picom + dunst** 
 
 There are also a few useful scripts to get Discord, virtual machines, 
-and a few other things working. ## Wallpaper The ASCII daemon wallpaper is included in `wallpapers/`. 
+and a few other things working. 
+
+## Wallpaper The ASCII daemon wallpaper is included in `wallpapers/`. 
 Originally from Wallhaven. 
 
 ## Patches 
@@ -40,7 +42,9 @@ The `scripts/newlook` script randomly changes the wallpaper and regenerates the 
 1. Selects a random wallpaper from `~/pix/wall/` and applies it with `xwallpaper`
 2. `pywal` generates a color palette from the wallpaper
 3. The colors are merged into dwm's Xresources using `xrdb`
-4. `killall -USR1 dwm` reloads the colors in dwm without restarting it The dwm status bar, window borders, and the terminal (`st`) automatically update their color scheme to match the selected wallpaper.
+4. `killall -USR1 dwm` reloads the colors in dwm without restarting it
+
+The dwm status bar, window borders, and the terminal (`st`) automatically update their color scheme to match the selected wallpaper.
 
 
 ## Dependencies 
