@@ -50,7 +50,7 @@ static const char *colors[][3] = {
 static const char *tags[] = { "\uf4fb", "\uf4ba", "\uf26b", "\uf1d8", "\uf544", "\uf001", "\uf4d8", "\uf55f", "\uf54c" };
 
 static const Rule rules[] = {
-	/* clase              instancia título          máscara    flotante    terminal    noswallow  monitor */
+	/* class              instance  title           tags mask  isfloating  terminal    noswallow  monitor */
 	{ "TelegramDesktop",  NULL,     NULL,           0,         1,          0,          0,         -1 },
 	{ "obs",              NULL,     NULL,           0,         1,          0,          0,         -1 },
 	{ "Lutris",           NULL,     NULL,           0,         1,          0,          0,         -1 },
@@ -61,16 +61,16 @@ static const Rule rules[] = {
 };
 
 /* distribuciones */
-static float mfact              = 0.55; /* proporción del área maestra [0.05..0.95] */
+static float mfact              = 0.55; /* factor of master area size [0.05..0.95] */
 static int nmaster              = 1;    /* number of clients in master area */
 static int resizehints          = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
-static const int refreshrate    = 120;  /* tasa de refresco (por segundo) al mover/redimensionar */
+static const int refreshrate    = 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
-	/* símbolo  función de distribución */
-	{ "[]=",    tile },    /* primera entrada es la predeterminada */
-	{ "><>",    NULL },    /* sin función = comportamiento flotante */
+	/* symbol  arrange function */
+	{ "[]=",    tile },    /* first entry is default */
+	{ "><>",    NULL },    /* no layout function means floating behavior */
 	{ "[M]",    monocle },
 };
 
@@ -82,11 +82,11 @@ static const Layout layouts[] = {
     { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* macro para ejecutar comandos de shell (estilo pre dwm-5.0) */
+/* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* comandos */
-static char dmenumon[2]            = "0"; /* monitor para dmenu, modificado en spawn() */
+static char dmenumon[2]            = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "/bin/sh", "-c", "$HOME/scripts/dmenu.sh", NULL };
 static const char *flamecmd[]      = { "flameshot", "gui", NULL };
 static const char *lockcmd[]       = { "asciilock", NULL };
@@ -95,7 +95,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 static Key keys[] = {
-    /* modificador                  tecla      función         argumento */
+    /* modifier                     key        function        argument */
     { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flamecmd } },
     { MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("mkdir -p ~/pix/screenshots && flameshot full -p ~/pix/screenshots/") },
     { MODKEY|ShiftMask,             XK_i,      spawn,          {.v = lockcmd } },
@@ -145,8 +145,8 @@ static Key keys[] = {
     { 0, XF86XK_AudioRaiseVolume,              spawn,          {.v = volupcmd } },
 };
 
-/* definición de botones */
-/* click puede ser ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin o ClkRootWin */
+/* button definitions */
+/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
     /* click                máscara         botón           función         argumento */
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
