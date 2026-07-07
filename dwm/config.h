@@ -1,4 +1,4 @@
-/* Ver archivo LICENSE para detalles de copyright y licencia. */
+/* View LICENSE file for copyright and license details. */
 
 #include <X11/Xresource.h>
 #include <X11/XF86keysym.h>
@@ -9,18 +9,18 @@ static const char *volupcmd[]   = { "sh", "-c", "pactl set-sink-volume @DEFAULT_
 static const char *voldowncmd[] = { "sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 dwmblocks", NULL };
 static const char *mutecmd[]    = { "sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 dwmblocks", NULL };
 
-/* espaciado */
-static int gappih  = 6;
-static int gappiv  = 6;
-static int gappoh  = 8;
-static int gappov  = 8;
-static int smartgaps = 1;
+/* gaps */
+static int gappih  = 6;		/* horiz inner gap between windows */
+static int gappiv  = 6;		/* vert inner gap between windows */
+static int gappoh  = 8;		/* horiz outer gap between windows and screen edge */
+static int gappov  = 8;		/* vert outer gap between windows and screen edge */
+static int smartgaps = 1;	/* 1 means no outer gap when there is only one window */
 
 /* apariencia */
-static unsigned int borderpx   = 2;   /* borde en píxeles de las ventanas */
-static unsigned int snap       = 32;  /* snap en píxeles */
-static int showbar             = 1;   /* 0 oculta la barra */
-static int topbar              = 1;   /* 0 pone la barra abajo */
+static unsigned int borderpx   = 2;   /* border pixel of windows */
+static unsigned int snap       = 32;  /* snap píxel */
+static int showbar             = 1;   /* 0 means no bar */
+static int topbar              = 1;   /* 0 means bottom bar */
 static int swallowfloating     = 0;
 static const char *fonts[]     = { "JetBrains Mono:size=11", "JoyPixels:pixelsize=11:antialias=true:autohint=true" };
 static const char dmenufont[]  = "JetBrains Mono:size=11";
@@ -62,9 +62,9 @@ static const Rule rules[] = {
 
 /* distribuciones */
 static float mfact              = 0.55; /* proporción del área maestra [0.05..0.95] */
-static int nmaster              = 1;    /* cantidad de clientes en el área maestra */
-static int resizehints          = 1;    /* 1 respeta size hints al redimensionar en mosaico */
-static const int lockfullscreen = 1;    /* 1 fuerza el foco en ventana fullscreen */
+static int nmaster              = 1;    /* number of clients in master area */
+static int resizehints          = 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 static const int refreshrate    = 120;  /* tasa de refresco (por segundo) al mover/redimensionar */
 
 static const Layout layouts[] = {
