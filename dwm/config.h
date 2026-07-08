@@ -16,7 +16,7 @@ static int gappoh  = 8;		/* horiz outer gap between windows and screen edge */
 static int gappov  = 8;		/* vert outer gap between windows and screen edge */
 static int smartgaps = 1;	/* 1 means no outer gap when there is only one window */
 
-/* apariencia */
+/* appearance */
 static unsigned int borderpx   = 2;   /* border pixel of windows */
 static unsigned int snap       = 32;  /* snap píxel */
 static int showbar             = 1;   /* 0 means no bar */
@@ -46,7 +46,7 @@ static const char *colors[][3] = {
 	[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
-/* etiquetas */
+/* tagging */
 static const char *tags[] = { "\uf4fb", "\uf4ba", "\uf26b", "\uf1d8", "\uf544", "\uf001", "\uf4d8", "\uf55f", "\uf54c" };
 
 static const Rule rules[] = {
@@ -60,7 +60,7 @@ static const Rule rules[] = {
 	{ NULL,               NULL,     "calendar",     0,         1,          0,          1,         -1 }, /* popup calendario */
 };
 
-/* distribuciones */
+/* layout(s) */
 static float mfact              = 0.55; /* factor of master area size [0.05..0.95] */
 static int nmaster              = 1;    /* number of clients in master area */
 static int resizehints          = 1;    /* 1 means respect size hints in tiled resizals */
@@ -74,7 +74,7 @@ static const Layout layouts[] = {
 	{ "[M]",    monocle },
 };
 
-/* definición de teclas */
+/* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
     { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -85,7 +85,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* comandos */
+/* commands */
 static char dmenumon[2]            = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "/bin/sh", "-c", "$HOME/scripts/dmenu.sh", NULL };
 static const char *flamecmd[]      = { "flameshot", "gui", NULL };
